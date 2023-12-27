@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GC Content Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>GC Content Calculator</h1>
-        <label for="dnaSequence">Enter DNA Sequence:</label>
-        <textarea id="dnaSequence" placeholder="Enter DNA sequence here..." rows="4"></textarea>
-        <button onclick="calculateGCContent()">Calculate GC Content</button>
-        <div id="result-box" class="result-box">
-            <p id="result"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+function calculateGCContent() {
+    var dnaSequence = document.getElementById('dnaSequence').value.trim().toUpperCase();
+
+    // Check if the input is a valid DNA sequence
+    if (/^[ACGT]*$/.test(dnaSequence)) {
+        var totalBases = dnaSequence.length;
+        var aCount = (dnaSequence.match(/A/g) || []).length;
+        var tCount = (dnaSequence.match(/T/g) || []).length;
+        var gCount = (dnaSequence.match(/G/g) || []).length;
+        var cCount = (dnaSequence.match(/C/g) || []).length;
+        var gcCount = gCount + cCount;
+        var gcContent = (gcCount / totalBases) * 100;
+
+        var resultText = `
+            <strong>GC Content:</strong> ${gcContent.toFixed(2)}%
+        `;
+
+        document.getElementById('result').innerHTML = resultText;
+        document.getElementById('result-box').style.display = 'block';  // Show the result box
+    } else {
+        alert('Invalid DNA sequence. Please enter valid bases (A, C, G, T).');
+    }
+}
