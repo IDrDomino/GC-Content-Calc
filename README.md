@@ -2,6 +2,9 @@
 
 This simple web-based GC Content Calculator allows users to input a DNA sequence and calculates the GC content. The project is implemented using HTML, CSS, and JavaScript.
 
+![image](https://github.com/IDrDomino/GC-Content-Calc/assets/154571800/78d8a243-1e3a-4a1d-be24-a65a45663507)
+
+
 ## Table of Contents
 - [Features](#features)
 - [Usage](#usage)
